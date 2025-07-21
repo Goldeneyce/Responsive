@@ -1,3 +1,170 @@
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em 20px; /* Added horizontal padding */
+    display: flex; /* Use flexbox for header layout */
+    justify-content: space-between; /* Space out title and nav/hamburger */
+    align-items: center; /* Vertically align items */
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
+}
+
+h1 {
+    margin: 0; /* Remove default margin */
+}
+
+/* Desktop Navigation */
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Keep nav items horizontal on desktop */
+}
+
+.main-nav ul li {
+    margin-left: 20px; /* Space between desktop nav items */
+}
+
+.main-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: #ffd700;
+}
+
+/* Hamburger Menu Styles (Hidden on larger screens) */
+.hamburger-menu {
+    display: none; /* Hidden by default on desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001; /* Ensure it's above other content */
+    margin-left: auto; /* Push to the right if needed, when h1 is on left */
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+    border-radius: 2px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically on mobile */
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 15px;
+}
+
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #333;
+    color: #fff;
+    margin-top: 20px;
+}
+
+/* Media Query for Mobile (screens up to 768px wide) */
+@media (max-width: 768px) {
+    header {
+        flex-wrap: nowrap; /* Prevent wrapping when hamburger is active */
+        justify-content: space-between; /* Ensure space between title and hamburger */
+    }
+
+    h1 {
+        flex-grow: 1; /* Allow title to take up available space */
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger on small screens */
+    }
+
+    .main-nav {
+        position: absolute;
+        top: 60px; /* Adjust based on your header height */
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        flex-direction: column; /* Stack links vertically */
+        align-items: center;
+        height: 0; /* Hidden by default */
+        overflow: hidden; /* Hide overflowing content */
+        transition: all 0.3s ease-in-out; /* Smooth transition for height */
+        z-index: 999; /* Below hamburger, above other content */
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .main-nav.active { /* Class added by JavaScript */
+        height: auto; /* Show the navigation */
+        padding-bottom: 20px; /* Add some padding when open */
+    }
+
+    .main-nav ul {
+        flex-direction: column; /* Stack links vertically */
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-nav ul li {
+        margin: 15px 0;
+    }
+
+    .main-nav ul li a {
+        font-size: 1.3em;
+        padding: 10px 0;
+        display: block;
+    }
+
+    /* Hamburger icon animation */
+    .hamburger-menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger-menu.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Flex container for main content */
+    .container {
+        flex-direction: column;
+    }
+}
+
 /* Media Query for larger screens (e.g., tablets and desktops) */
 @media (min-width: 769px) { /* Changed from 768px to 769px for clear breakpoint */
     header {
