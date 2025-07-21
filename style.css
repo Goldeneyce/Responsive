@@ -1,0 +1,84 @@
+/* Base styles (mobile-first) */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Flexbox for horizontal navigation */
+    justify-content: center;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    display: block;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically on mobile */
+    gap: 20px; /* Space between items */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+img {
+    max-width: 100%; /* Ensure images don't overflow */
+    height: auto;
+    display: block; /* Remove extra space below image */
+    margin-top: 15px;
+}
+
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #333;
+    color: #fff;
+    margin-top: 20px;
+}
+
+/* Media Query for larger screens (e.g., tablets and desktops) */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row; /* Arrange items horizontally on larger screens */
+        flex-wrap: wrap; /* Allow items to wrap to the next row */
+        justify-content: space-between; /* Distribute space */
+    }
+
+    .item {
+        flex: 1; /* Allow items to grow and shrink */
+        min-width: 300px; /* Minimum width for each item */
+        max-width: 48%; /* Adjust for spacing if needed, e.g., for two columns */
+    }
+
+    /* For more than two columns, you'd adjust max-width accordingly or use CSS Grid */
+    @media (min-width: 1024px) {
+        .item {
+            max-width: 31%; /* Example for three columns */
+        }
+    }
+}
